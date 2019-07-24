@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Grid from './Grid.js';
+import CoinFlipper from './CoinFlipper.js';
 
 class App extends Component {
   render() {
     return (
-      <div id="App" className="container">
-          <Grid/>
+      <div id="App">
+          <CoinFlipper/>
       </div>
     );
   }

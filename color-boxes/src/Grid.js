@@ -4,8 +4,9 @@ import Box from './Box.js';
 class Grid extends Component {
     constructor(props){
         super(props);
+        console.log(this.props.boxCount)
         this.state= {
-            colors: Array.from({length: 16}).map(()=>this.generateRandomColor())
+            colors: Array.from({length: this.props.boxCount}).map(()=>this.generateRandomColor())
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -26,7 +27,7 @@ class Grid extends Component {
 
     handleClick(evt) {
         this.setState(function(state) {
-            let randomIndex = Math.floor(Math.random()*16);
+            let randomIndex = Math.floor(Math.random()*this.props.boxCount);
             let newColors = [...state.colors];
             newColors[randomIndex] = this.generateRandomColor();
             return {colors: newColors}
@@ -34,7 +35,6 @@ class Grid extends Component {
     }
     
     render() {
-        console.log("RENDERING")
         return (
             <div>
                 { this.state.colors.map(color => <Box color={color}/>) }
